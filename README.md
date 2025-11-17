@@ -14,10 +14,11 @@ However, these cubes are **high-dimensional**, expensive to store, and computati
 This project explores **Variational Autoencoders (VAEs)** — particularly a **Spatial Vision Transformer VAE** — to compress and reconstruct hyperspectral soil VNIR tiles:
 
 - Input shape: **145 × 145 × 200**  
-- VNIR2 dataset from `/scratch/mkhorram/Soil/VNIR2/`  
-- Compression target:  
-  - Conv-VAE → latent dim 1024  
-  - Spatial ViT-VAE → latent map **16 × 16 × C**
+- VNIR2 dataset from `/scratch/mkhorram/Soil/VNIR2/`
+  
+Compression target:
+- Conv-VAE → 1024-dim latent vector
+- Spatial ViT-VAE → spatial latent map 16 × 16 × 8  (≈ 2048 latent dimensions)
 
 The ViT-VAE significantly outperforms the baseline Conv-VAE.
 
@@ -87,6 +88,19 @@ furi-soil-hyperspectral-vae/
 
 ### Conv-VAE Latents  
 ![Conv Latent PCA](results/conv/latent_pca_ep025.png)
+
+---
+
+## Model Implementations
+
+- **Conv-VAE** (1D latent)
+  - Implemented in [`code/models/vae_conv.py`](code/models/vae_conv.py)
+  - Standard convolutional encoder–decoder VAE with a 1024-dim latent vector.
+
+- **Spatial ViT-VAE** (spatial latent)
+  - Implemented in [`code/models/vit_vae.py`](code/models/vit_vae.py)
+  - Vision Transformer–style encoder that produces a 16 × 16 × 8 spatial latent map,
+    with a convolutional/upsampling decoder to reconstruct 145 × 145 × 200 hyperspectral tiles.
 
 ---
 
