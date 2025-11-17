@@ -1,0 +1,23 @@
+data/
+runs/
+logs/
+*.pt
+*.npz
+*.bip
+__pycache__/
+*.pyc
+.DS_Store
+# Ignore MNIST data and other large artifacts
+code/mnistdata/
+
+# Ignore backup files
+*.bak
+
+# Ignore Python caches
+__pycache__/
+*.pyc
+
+# Ignore logs and run outputs (we’re only tracking curated results/)
+logs/
+runs/
+

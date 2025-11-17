@@ -1,0 +1,4 @@
+Checkpoint: runs/vnir2_conv_main_metrics/ep015.pt
+Model: conv  Latent: 1024
+Avg PSNR: 16.61 dB
+Avg SAM : 0.1713 rad

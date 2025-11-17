@@ -1,0 +1,4 @@
+Checkpoint: runs/vnir2_vit_spatial_main_metrics/ep025.pt
+Model: vit_spatial  Latent: 8
+Avg PSNR: 24.68 dB
+Avg SAM : 0.0628 rad
